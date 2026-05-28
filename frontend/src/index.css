@@ -1,0 +1,305 @@
+/* Sleek Soft Minimalist Design System */
+
+:root {
+  /* Typography */
+  --font-title: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  /* Colors */
+  --bg-main: #FBFBFA; /* Warm off-white / very light cream */
+  --text-main: #1C1C1E; /* Soft Dark Gray */
+  --text-muted: #8E8E93;
+  --color-border: rgba(0, 0, 0, 0.06);
+
+  /* Soft Pastel Palettes */
+  --color-blue: #E3F2FD;
+  --color-yellow: #FFF9C4;
+  --color-green: #E8F5E9;
+  --color-pink: #FFEBEE;
+  --color-purple: #F3E5F5;
+  --color-white: #FFFFFF;
+
+  /* Shadows */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.01);
+  --shadow-focus: 0 0 0 3px rgba(30, 30, 30, 0.05);
+  --shadow-island: 0 12px 30px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  /* Transitions */
+  --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Base Card / Container Styles */
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Inputs & Form Fields (Pill-shaped & borderless focus) */
+.input-field {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 12px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  background-color: rgba(0, 0, 0, 0.02);
+  color: var(--text-main);
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.input-field:focus {
+  background-color: var(--color-white);
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-focus);
+}
+
+/* Buttons (Sleek, pill-shaped) */
+.btn {
+  font-family: var(--font-title);
+  font-weight: 550;
+  font-size: 14px;
+  padding: 10px 22px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 24px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: var(--transition-smooth);
+  background-color: var(--color-white);
+  color: var(--text-main);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  user-select: none;
+}
+
+.btn:hover {
+  background-color: #F2F2F7;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0px);
+}
+
+.btn-primary {
+  background-color: #1C1C1E;
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: #2C2C2E;
+}
+
+.btn-success {
+  background-color: var(--color-green);
+}
+
+.btn-success:hover {
+  background-color: #C8E6C9;
+}
+
+.btn-danger {
+  background-color: var(--color-pink);
+  color: #D32F2F;
+}
+
+.btn-danger:hover {
+  background-color: #FFCDD2;
+}
+
+.btn-icon {
+  padding: 10px;
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+
+/* Layout Utilities (Stable heights to avoid layout shifts) */
+.app-container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 90px 24px 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dynamic Island Styling (Matte black hardware integration) */
+.dynamic-island-container {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.dynamic-island {
+  pointer-events: auto;
+  background-color: #000000;
+  color: #FFFFFF;
+  border-radius: 24px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-title);
+  font-weight: 500;
+  font-size: 13px;
+  box-shadow: var(--shadow-island);
+  transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              min-height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              border-radius 0.3s ease,
+              background-color 0.3s ease;
+  min-width: 100px;
+  max-width: 90vw;
+  overflow: hidden;
+}
+
+/* Internal content animation on mount/transition */
+@keyframes islandContentFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.dynamic-island-content {
+  animation: islandContentFadeIn 0.25s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dynamic Island States */
+.dynamic-island.idle {
+  width: 100px;
+  height: 38px;
+  padding: 8px 12px;
+}
+
+.dynamic-island.expanded {
+  width: min(380px, calc(100vw - 48px));
+  height: 44px;
+  border-radius: 22px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+}
+
+.dynamic-island.large {
+  width: min(380px, calc(100vw - 48px));
+  min-height: 150px;
+  border-radius: 24px;
+  flex-direction: column;
+  padding: 18px;
+  align-items: stretch;
+}
+
+/* Accent Notifications */
+.dynamic-island.notification-error {
+  background-color: #EF4444 !important;
+  color: #FFFFFF !important;
+  box-shadow: var(--shadow-island) !important;
+}
+
+.dynamic-island.notification-success {
+  box-shadow: var(--shadow-island) !important;
+}
+
+/* Animations & Spacing Grid */
+.folder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.note-grid {
+  column-count: 3;
+  column-gap: 20px;
+  margin-top: 24px;
+}
+
+@media (max-width: 992px) {
+  .note-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 680px) {
+  .note-grid {
+    column-count: 1;
+  }
+}
+
+/* Back button — shrink slightly on very small screens, keep top position */
+@media (max-width: 400px) {
+  .back-btn-fixed {
+    width: 32px !important;
+    height: 32px !important;
+    left: 12px !important;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}

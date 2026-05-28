@@ -1,0 +1,30 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Build outputs
+backend/dist
+frontend/dist
+
+# Environment files
+.env
+.env.local
+**/.env
+**/.env.local
+
+# SQLite database
+**/*.db
+**/*.db-journal
+backend/prisma/dev.db
+
+# Prisma Windows native binary
+**/query_engine-windows.dll.node
+
+# Logs
+*.log
+**/logs
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db

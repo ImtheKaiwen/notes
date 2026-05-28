@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Production Build
+dist/
+
+# Environment files
+.env
+.env.local
+
+# Database / Prisma
+*.db
+*.db-journal
+dev.db
+query_engine-windows.dll.node
+
+# System logs
+logs
+*.log
+npm-debug.log*
