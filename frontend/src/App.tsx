@@ -58,7 +58,7 @@ const AppContent: React.FC = () => {
             100% { transform: rotate(360deg); }
           }
         `}</style>
-        <h2 style={{ fontSize: '18px', fontFamily: 'var(--font-title)' }}>Notes</h2>
+        <h2 style={{ fontSize: '18px', fontFamily: 'var(--font-title)' }}>Kaido</h2>
         <p style={{ color: 'var(--text-muted)', fontSize: '13px', maxWidth: '280px' }}>
           Connecting to our cloud backend database... This may take a moment on the first load as the server spins up.
         </p>
