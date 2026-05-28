@@ -44,22 +44,18 @@ app.use('/api/auth', authRoutes);
 app.use('/api/folders', folderRoutes);
 app.use('/api/notes', noteRoutes);
 
-// Serve React frontend static files (production Docker build)
-const frontendDist = path.join(__dirname, '../../frontend/dist');
-app.use(express.static(frontendDist));
-
-// SPA fallback — all non-API routes return index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(frontendDist, 'index.html'));
-});
-
 // General fallback error handler
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Something went wrong on the server!' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log(`Frontend served from: ${frontendDist}`);
-});
+// Start the server locally (Vercel will ignore this and use the exported app)
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running locally on port ${PORT}`);
+  });
+}
+
+// Export for Vercel Serverless Functions
+export default app;
